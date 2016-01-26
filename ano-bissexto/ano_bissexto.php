@@ -19,15 +19,15 @@ function se_bissexto($ano){
 	if ( (($ano%4) == 0 && ($ano%100) != 0) || ($ano%400) == 0 ){
 		$bissexto = "O ano de ".$ano." é bissexto \n";
 	}else{
-		$bissexto = "O ano de ".$ano." NÃO é bissexto <br/>";
+		$bissexto = "O ano de ".$ano." NÃO é bissexto \n";
 	}
 
 	return $bissexto;
 }
-echo se_bissexto(2400); // Parâmetro receberá o ano a ser pesquisado
+echo se_bissexto($ano); // Parâmetro receberá o ano a ser pesquisado, pode ser substituído pelo ano diretamente.
 
 // Calcula o fim da execução do script,
-// Apresenta o tempo de em ms
+// Apresenta o tempo de em ms.
 function fimExec(){
 	global $tempo;
 	$fim = pegaTempo();
