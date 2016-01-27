@@ -1,4 +1,17 @@
 <?php
+iniciaExec(); // inicia a função de cálculo do tempo da execução
+
+// Pega o tempo
+function pegaTempo(){
+	$microtime = explode(" ", microtime());
+	$tempo = $microtime[0] + $microtime[1];
+	return $tempo;
+}
+// Calcula o tempo do início
+function iniciaExec(){
+	global $tempo;
+	$tempo = pegaTempo();
+}
 
 function calcula($tempoPrep, $amp1, $amp2){
 	// Tempo da empulheta não pode ser menor que o tempo de preparo.
@@ -41,4 +54,14 @@ function calcula($tempoPrep, $amp1, $amp2){
 	}
 }
 echo calcula(3, 5, 7); // informe no primeiro parâmetro o tempo de preraro, depois os tempos das ampulhetas.
+
+// Calcula o fim da execução do script,
+// Apresenta o tempo de em ms.
+function fimExec(){
+	global $tempo;
+	$fim = pegaTempo();
+	$tempoExec = $fim - $tempo;
+	return "Tempo de execução: ".number_format($tempoExec, 6)." ms \n";
+}
+echo fimExec();
 ?>
